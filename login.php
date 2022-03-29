@@ -1,5 +1,6 @@
 <?php
 require_once './controllers/loginController.php';
+checkSession($_SERVER['REQUEST_URI']);
 if(isset($_POST['enviar'])){
     $errorLogin=login($_POST['user'],$_POST['pass']);
 }
