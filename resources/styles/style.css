@@ -33,3 +33,30 @@ input[type="submit"]{
     color:rgb(240, 157, 157);
     margin:10px;
 }
+
+/*
+Estilos gestion escuelas
+*/
+header{
+    background-color: rgb(25, 25, 78);
+    text-align:right;
+    padding:20px;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style:none;
+}
+nav ul li a{
+    background-color:#fff;
+    color:rgb(25, 25, 78);
+    padding:10px;
+    border-radius:10px;
+}
+.insert-data{
+    text-align:center;
+    padding:30px;
+    width:50%;
+    border:1px solid rgb(20, 149, 172);
+}
