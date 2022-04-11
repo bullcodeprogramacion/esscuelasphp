@@ -60,3 +60,23 @@ nav ul li a{
     width:50%;
     border:1px solid rgb(20, 149, 172);
 }
+
+
+/*
+    Estilos de gestion escuelas
+*/
+
+header{
+    background-color: rgb(25, 25, 78);
+    text-align:right;
+    padding:20px;
+}
+
+nav ul li a {
+    background-color:#fff;
+    text-decoration:none;
+    color:rgb(25, 25, 78);
+    padding:10px;
+    border-radius:4px
+}
+
