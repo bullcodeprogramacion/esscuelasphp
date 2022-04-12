@@ -22,9 +22,33 @@
                 <input type="file" name="image_escuela">
                 <input type="submit" name="enviar" value="Crear Escuela">
                 <?php
-                    if(isset($response) && $response=="Error al crear clase") echo "<span class='error'>$response</span>";
+                    if(isset($response) && $response==="Error al crear clase" && $response==="Error al crear la imagen, solo imagenes jpeg,jpg y png y no mayores a 1MB") echo "<span class='error'>$response</span>";
                 ?>
             </form>
+        </div>
+        <div class="show-data-div">
+            <?php
+                $todasLasClases = obtenerTodasLasClases();
+                if($todasLasClases){
+                    foreach($todasLasClases as $clase){
+                        $clase = json_decode($clase);
+                    ?>
+                        <div class="data-clase">
+                            <div class="div-image">
+                                <img src="<?php echo $clase->imagen?>" class="clase-imagen">
+                            </div>
+                            <div> 
+                                <span>Nombre:</span><span class="nombre-clase"><?php echo $clase->nombre ?></span>
+                            </div>
+                            <div>
+                                <span>Web:</span><span class="nombre-url"><?php echo $clase->url ?></span>
+                                <a href="clase.php?id=<?php echo $clase->id ?>" class="ver-clase">Ver Clase</a>
+                            </div>
+                        </div>
+            <?php
+                    }
+                }
+            ?>
         </div>
     </body>
 </html>

@@ -80,3 +80,46 @@ nav ul li a {
     border-radius:4px
 }
 
+
+.show-data-div{
+    margin:100px
+}
+
+.data-clase{
+    margin:10px;
+    padding:20px;
+    width:40%;
+    border:1px solid rgb(222, 250, 255);
+    -webkit-box-shadow: 5px 5px 6px -3px rgba(111, 111, 111, 0.96);
+    box-shadow: 5px 5px 6px -3px rgba(111, 111, 111, 0.96);
+}
+
+.data-clase div{
+    margin-top:10px;
+}
+
+.nombre-clase,.nombre-url{
+    display:inline-block;
+    margin-left:10px;
+    font-weight:bold;
+}
+
+.data-clase div a{
+    display:block;
+    margin:20px auto;
+    text-align: center;
+    width:30%;
+    text-decoration:none;
+    padding:5px;
+    border-radius: 5px;
+    color:#fff;
+    background-color:rgb(25, 25, 78);
+}
+
+.div-image{
+    width:40%;
+    margin:10px
+}
+.clase-imagen{
+    width:100%;
+}

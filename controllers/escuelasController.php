@@ -17,12 +17,7 @@
     }
 
     function incrementarId($id){
-        // obtenemos los datos
-        $data = file_get_contents("clases/clases.txt");
-        // convertimos el string en array con el delimitador que hemos puesto de ;
-        $data = explode(";",$data);
-        // quitamos el ultimo elemento del array ya que esta vacio
-        array_pop($data);
+        $data = obtenerTodosLosDatos();
         // obtenemos el ultimo elementoo del array
         $data = end($data);
         // decoodificamos los datos
@@ -53,18 +48,38 @@
     }
 
     function createImage($file){
+        $carpeta = '/escuelasphp/resources/images/';
         // COMPROBAMOS QUE LA IMAGEN TIENE UN NOMBRE, SI NO ESQUE NO HEMOS INSERTADO IMAGEN Y PONEMOS LA NUESTRA POR DEFECTO
-        if($file['image_escuela']['name']=='') return $_SERVER['DOCUMENT_ROOT'].'/escuelasphp/resources/images/sin_imagen.jpeg';
+        if($file['image_escuela']['name']=='') return $carpeta.'sin_imagen.jpeg';
         // comprobamos que nuesstra imagen es mas pequeña de 1MB
         if($file['image_escuela']['size']>1000000) return false;
         // checkamos que solo sean imagenes de tipo jpg,jpeg,png para securizar la subida
         if($file['image_escuela']['type']!=='image/png' && $file['image_escuela']['type']!=='image/jpg' && $file['image_escuela']['type']!=='image/jpeg') return false;
         // escribimos el directorio donde vamos a insertar la imagen
-        $carpeta = $_SERVER['DOCUMENT_ROOT'].'/escuelasphp/resources/images/';
+        $rutaAbsoluta = $_SERVER['DOCUMENT_ROOT'].$carpeta;
         // movemos la imagen desde el archivo temporal al nuestro
-        move_uploaded_file($file['image_escuela']['tmp_name'],$carpeta.$file['image_escuela']['name']);
+        move_uploaded_file($file['image_escuela']['tmp_name'],$rutaAbsoluta.$file['image_escuela']['name']);
         // retornamos el nombre de la imagen
         return $carpeta.$file['image_escuela']['name'];
+    }
+
+    function obtenerTodasLasClases(){
+        // obtenemos los datos
+        if(file_exists("clases/clases.txt")){
+            $data = obtenerTodosLosDatos();
+            return $data;
+        }
+        return false;
+    }
+
+    function obtenerTodosLosDatos(){
+        // obtenemos los datos
+        $data = file_get_contents("clases/clases.txt");
+        // convertimos el string en array con el delimitador que hemos puesto de ;
+        $data = explode(";",$data);
+        // quitamos el ultimo elemento del array ya que esta vacio
+        array_pop($data);
+        return $data;
     }
 
 ?>
