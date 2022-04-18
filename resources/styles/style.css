@@ -56,8 +56,10 @@ nav ul li a{
 }
 .insert-data{
     text-align:center;
+    display:inline-block;
     padding:30px;
-    width:50%;
+    width:49%;
+    box-sizing:border-box;
     border:1px solid rgb(20, 149, 172);
 }
 
@@ -71,7 +73,9 @@ header{
     text-align:right;
     padding:20px;
 }
-
+nav ul li{
+    display:inline-block;
+}
 nav ul li a {
     background-color:#fff;
     text-decoration:none;
@@ -118,8 +122,21 @@ nav ul li a {
 
 .div-image{
     width:40%;
-    margin:10px
+    margin:10px;
 }
 .clase-imagen{
     width:100%;
+}
+
+/*
+    estilos de escuela.php
+*/
+
+.data-escuela{
+    padding:30px;
+    border:1px solid rgb(212, 212, 212);
+    border-radius:4px;
+}
+.image-escuela{
+    width:5%;
 }

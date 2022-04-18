@@ -5,15 +5,6 @@
     if(isset($_POST['enviar']))  $response = crearEscuela($_POST['escuelas_nombre'],$_POST['escuelas_web'],$_FILES);
     require_once 'head.php';
 ?>
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="logout.php">Cerrar Sesion</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
         <div class="insert-data">
             <h1>Crear Escuela</h1>
             <form action='' method='POST' enctype="multipart/form-data">
@@ -42,7 +33,7 @@
                             </div>
                             <div>
                                 <span>Web:</span><span class="nombre-url"><?php echo $clase->url ?></span>
-                                <a href="clase.php?id=<?php echo $clase->id ?>" class="ver-clase">Ver Clase</a>
+                                <a href="escuela.php?id=<?php echo $clase->id ?>" class="ver-clase">Ver Clase</a>
                             </div>
                         </div>
             <?php
