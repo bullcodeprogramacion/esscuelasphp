@@ -89,7 +89,7 @@ nav ul li a {
     margin:100px
 }
 
-.data-clase{
+.data-clase,.show-data{
     margin:10px;
     padding:20px;
     width:40%;
@@ -139,4 +139,26 @@ nav ul li a {
 }
 .image-escuela{
     width:5%;
+}
+
+.each-escuela,.each-alumno{
+    display: block;
+    font-weight: 500;
+}
+.show-data{
+    display: inline-block;
+    width:48%;
+    box-sizing:border-box;
+}
+hr{
+    margin:30px;
+}
+.each-data-alumno{
+    padding:15px;
+    border:1px solid rgb(205, 205, 205);
+    border-radius:4px;
+    margin:5px;
+}
+.title-data{
+    text-align: center;
 }
