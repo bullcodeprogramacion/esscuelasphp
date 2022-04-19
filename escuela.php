@@ -18,8 +18,14 @@
         $data = obtenerTodosLosDatos();
         $dataEscuela = obtenerEscuela($data,$idEscuela);
     }
+    if(isset($_POST['el_clase'])){
+        eliminarClase($idEscuela,$_POST['key_array'],$dataEscuela,$data);
+    }
     if(isset($_POST['ac_clase'])){
         actualizarClase($idEscuela,$_POST,$dataEscuela,$data);
+    }
+    if(isset($_POST['el_alumno'])){
+        eliminarAlumno($idEscuela,$_POST['key_array'],$dataEscuela,$data);
     }
 ?>
 <div class="data-escuela">
@@ -58,6 +64,10 @@
                     <input type="submit" name="ac_clase" value="Actualizar Clase"/>
                 </form>
             </div>
+            <form acton='' method='POST'>
+                <input type="hidden" name="key_array" value="<?php echo $key?>"/>
+                <input class="delete" type="submit" name="el_clase" value="Eliminar Clase"/>
+            </form>
     <?php }
     ?>
 </div>
@@ -74,6 +84,10 @@
                     <input type="submit" name="ac_alumno" value="Actualizar Alumno"/>
                 </form>
             </div> 
+            <form acton='' method='POST'>
+                <input type="hidden" name="key_array" value="<?php echo $key?>"/>
+                <input class="delete" type="submit" name="el_alumno" value="Eliminar Alumno"/>
+            </form>
     <?php }
     ?>
 </div>

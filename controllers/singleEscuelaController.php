@@ -18,6 +18,11 @@
         return crearData($dataEscuela,$idEscuela,$data);
     }
 
+    function eliminarClase($idEscuela,$keyArray,$dataEscuela,$data){
+        array_splice($dataEscuela->clases,$keyArray,1);
+        return crearData($dataEscuela,$idEscuela,$data);
+    }
+
     function crearAlumno($idEscuela,$dataAlumno,$dataEscuela,$data){
         if(strlen($dataAlumno['nombre_alumno'])<3 || strlen($dataAlumno['apellidos_alumno'])<3) return "Error al crear alumno";
         $datosAlumno = [
@@ -40,6 +45,10 @@
         return crearData($dataEscuela,$idEscuela,$data);
     }
 
+    function eliminarAlumno($idEscuela,$keyArray,$dataEscuela,$data){
+        array_splice($dataEscuela->alumnos,$keyArray,1);
+        return crearData($dataEscuela,$idEscuela,$data);
+    }
 
     function crearData($dataEscuela,$idEscuela,$data){
         $dataEscuela = json_encode($dataEscuela);

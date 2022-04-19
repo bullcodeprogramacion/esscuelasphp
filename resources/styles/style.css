@@ -162,11 +162,15 @@ hr{
 .title-data{
     text-align: center;
 }
-.each-data-alumno form input[type="submit"]{
+.each-data-alumno form input[type="submit"],.delete{
     font-size:12px;
     background-color:rgb(25, 25, 78);
     width:30%;
     display: block;
     margin:10px auto;
     cursor:pointer;
+}
+.delete{
+    font-size:10px!important;
+    background-color: rgb(232, 128, 143)!important;
 }
