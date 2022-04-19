@@ -8,7 +8,19 @@
     $data = obtenerTodosLosDatos();
     $dataEscuela = obtenerEscuela($data,$idEscuela);
     if(isset($_POST['enviar_clase'])) crearClase($idEscuela,$_POST['nombre_clase'],$dataEscuela,$data);
-    if(isset($_POST['enviar_alumno'])) crearAlumno($idEscuela,$_POST,$dataEscuela,$data);
+    if(isset($_POST['enviar_alumno'])){
+        crearAlumno($idEscuela,$_POST,$dataEscuela,$data);
+        $data = obtenerTodosLosDatos();
+        $dataEscuela = obtenerEscuela($data,$idEscuela);
+    }
+    if(isset($_POST['ac_alumno'])){
+        actualizarAlumno($idEscuela,$_POST,$dataEscuela,$data);
+        $data = obtenerTodosLosDatos();
+        $dataEscuela = obtenerEscuela($data,$idEscuela);
+    }
+    if(isset($_POST['ac_clase'])){
+        actualizarClase($idEscuela,$_POST,$dataEscuela,$data);
+    }
 ?>
 <div class="data-escuela">
     <p>Imagen de escuela</p>
@@ -38,18 +50,29 @@
 <div class="show-data">
     <h3>Todas las clases</h3>
     <?php
-        foreach ($dataEscuela->clases as $clase) {?>
-            <span class="each-escuela"><?php echo $clase?></span> 
+        foreach ($dataEscuela->clases as $key => $clase) {?>
+            <div class="each-data-alumno">
+                <form acton='' method='POST'>
+                    <input type="text" name="nombre_clase_ac" value="<?php echo $clase?>"/>
+                    <input type="hidden" name="key_array" value="<?php echo $key?>"/>
+                    <input type="submit" name="ac_clase" value="Actualizar Clase"/>
+                </form>
+            </div>
     <?php }
     ?>
 </div>
 <div class="show-data">
     <h3>Todos los alumnos</h3>
     <?php
-        foreach ($dataEscuela->alumnos as $alumno) {?>
+        foreach ($dataEscuela->alumnos as $key => $alumno) {?>
             <div class="each-data-alumno">
-                <span class="each-alumno">Nombre y Apellidos: <?php echo $alumno->nombre." ".$alumno->apellidos?></span>
-                <span class="each-alumno">Email: <?php echo $alumno->email?></span>
+                <form acton='' method='POST'>
+                    <input type="text" name="nombre_alumno_ac" value="<?php echo $alumno->nombre?>"/>
+                    <input type="text" name="apellidos_alumno_ac" value="<?php echo $alumno->apellidos?>"/>
+                    <input type="email" name="email_ac" value="<?php echo $alumno->email?>"/>
+                    <input type="hidden" name="key_array" value="<?php echo $key?>"/>
+                    <input type="submit" name="ac_alumno" value="Actualizar Alumno"/>
+                </form>
             </div> 
     <?php }
     ?>

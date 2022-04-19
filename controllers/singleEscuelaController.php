@@ -12,8 +12,14 @@
         return crearData($dataEscuela,$idEscuela,$data);
     }
 
+    function actualizarClase($idEscuela,$dataClase,$dataEscuela,$data){
+        if(strlen($dataClase['nombre_clase_ac'])<3) return "Error al actualizar clase";
+        $dataEscuela->clases[$dataClase['key_array']] = $dataClase['nombre_clase_ac'];
+        return crearData($dataEscuela,$idEscuela,$data);
+    }
+
     function crearAlumno($idEscuela,$dataAlumno,$dataEscuela,$data){
-        if(strlen($dataAlumno['nombre_alumno'])<3 || strlen($dataAlumno['apellidos_alumno'])<3) return "Error al crear clase";
+        if(strlen($dataAlumno['nombre_alumno'])<3 || strlen($dataAlumno['apellidos_alumno'])<3) return "Error al crear alumno";
         $datosAlumno = [
             "nombre" => $dataAlumno['nombre_alumno'],
             "apellidos" => $dataAlumno['apellidos_alumno'],
@@ -22,6 +28,18 @@
         array_push($dataEscuela->alumnos,$datosAlumno);
         return crearData($dataEscuela,$idEscuela,$data);
     }
+
+    function actualizarAlumno($idEscuela,$dataAlumno,$dataEscuela,$data){
+        if(strlen($dataAlumno['nombre_alumno_ac'])<3 || strlen($dataAlumno['apellidos_alumno_ac'])<3) return "Error al actualizar alumno";
+        $datosAlumno = [
+            "nombre" => $dataAlumno['nombre_alumno_ac'],
+            "apellidos" => $dataAlumno['apellidos_alumno_ac'],
+            "email" =>  $dataAlumno['email_ac']
+        ];
+        $dataEscuela->alumnos[$dataAlumno['key_array']] = $datosAlumno;
+        return crearData($dataEscuela,$idEscuela,$data);
+    }
+
 
     function crearData($dataEscuela,$idEscuela,$data){
         $dataEscuela = json_encode($dataEscuela);

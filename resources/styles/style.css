@@ -162,3 +162,11 @@ hr{
 .title-data{
     text-align: center;
 }
+.each-data-alumno form input[type="submit"]{
+    font-size:12px;
+    background-color:rgb(25, 25, 78);
+    width:30%;
+    display: block;
+    margin:10px auto;
+    cursor:pointer;
+}
